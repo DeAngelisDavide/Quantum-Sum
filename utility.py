@@ -47,7 +47,7 @@ def sum(qreg_q, qreg_q0, qreg_carry, creg, circuit):
         circuit.ccx(qreg_q[i], qreg_q0[i], qreg_carry[i])
         #Sum q0[i] + q[i]
         circuit.cx(qreg_q[i], qreg_q0[i])
-        #Sum the carry (q0[i]+ carry)
+        #Eventually update the carry and Sum (q0[i]+ previus carry)
         if i > 0:
             circuit.ccx(qreg_carry[i-1], qreg_q0[i], qreg_carry[i])
             circuit.cx(qreg_carry[i-1], qreg_q0[i])
